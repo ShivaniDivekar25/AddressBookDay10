@@ -19,25 +19,41 @@ namespace AddressBookDay10
         public string ContactNumber { get; set; }
         public string EditNumber { get; set; }
         public static List<Person> People = new List<Person>();
-
-        public static void AddPerson()          //Creating method for taking user inputs
+        public Person()
         {
-            Person person = new Person();
-            Console.Write("Enter First Name: ");
-            person.FirstName = Console.ReadLine();
-            Console.Write("Enter Last Name: ");
-            person.LastName = Console.ReadLine();
-            Console.Write("Enter Phone Number: ");
-            person.PhoneNumber = Console.ReadLine();
-            Console.Write("Enter Address: ");
-            person.Address = Console.ReadLine();
-            Console.WriteLine("Enter the City: ");
-            person.City = Console.ReadLine();
-            Console.WriteLine("Enter the state: ");
-            person.State = Console.ReadLine();
-            Console.WriteLine("Enter the EmailId");
-            person.EmailID = Console.ReadLine();
-            People.Add(person);
+
+        }
+        public Person(string FirstName, string LastName, string PhoneNumber, string Address, string City, string State, string EmailID)
+        {
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.PhoneNumber = PhoneNumber;
+            this.Address = Address;
+            this.City = City;
+            this.State = State;
+            this.EmailID = EmailID;
+        }
+        public static void AddPerson(int numContact)          //Creating method for taking user inputs
+        {
+            for (int i = 0; i < numContact; i++)
+            {
+                Person person = new Person();
+                Console.Write("Enter First Name: ");
+                person.FirstName = Console.ReadLine();
+                Console.Write("Enter Last Name: ");
+                person.LastName = Console.ReadLine();
+                Console.Write("Enter Phone Number: ");
+                person.PhoneNumber = Console.ReadLine();
+                Console.Write("Enter Address: ");
+                person.Address = Console.ReadLine();
+                Console.WriteLine("Enter the City: ");
+                person.City = Console.ReadLine();
+                Console.WriteLine("Enter the state: ");
+                person.State = Console.ReadLine();
+                Console.WriteLine("Enter the EmailId");
+                person.EmailID = Console.ReadLine();
+                People.Add(person);
+            }
         }
         public static void PrintPerson()            //Creating method to display persons details
         {
