@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -71,7 +72,7 @@ namespace AddressBookDay10
                 Console.WriteLine("---------------------------------------");
             }
         }
-        public void editContact(string name)
+        public void editContact(string name)        //Creating Method to edit contact
         {
             bool input = false;
             Console.WriteLine("Enter:\n1:Edit for Firstname\n2:Edit for LastName\n3:Edit for PhoneNumber\n4:Edit for Address\n5:Edit for City\n6:Edit for State\n7:Edit for EmailId");
@@ -127,6 +128,22 @@ namespace AddressBookDay10
             if(input = false)
                 Console.WriteLine("First name is not found");
             Person.PrintPerson();
+        }
+        public void deleteContact(string name)      //Creating method for delete contact
+        {
+            bool flag = false;
+            foreach (Person person1 in people)
+            {
+                if (person1.FirstName == name)
+                {
+                    flag = true;
+                    people.Remove(person1);
+                    Console.WriteLine("The contact is successfully removed");
+                    break;
+                } 
+            }
+            if (flag == false)
+                Console.WriteLine("The contact is not found");
         }
     }
 }
