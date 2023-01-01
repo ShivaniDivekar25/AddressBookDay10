@@ -82,7 +82,7 @@ namespace AddressBookDay10
                 if (person.FirstName == name)
                 {
                     input = true;
-                    switch (option)
+                    switch (option)         //Switch case for editing parameter
                     {
                         case 1:
                             Console.WriteLine("Enter current first name: ");

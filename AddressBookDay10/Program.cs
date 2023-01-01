@@ -8,9 +8,9 @@ namespace AddressBookDay10
         {
             //Start
             Console.WriteLine("Welcome to Address Book Program!");
-            Console.WriteLine("Entern\n1:Ability to create Contacts in AddressBook\n2:Ability to add new coontact to AddressBook\n3:Edit contact in AddressBook\n4:Remove contact from AddressBook");
+            Console.WriteLine("Entern\n1:Ability to create Contacts in AddressBook\n2:Ability to add new coontact to AddressBook\n3:Edit contact in AddressBook\n4:Remove contact from AddressBook\n5:Multiple contact in AddressBook");
             int option = Convert.ToInt32(Console.ReadLine());       //Taking user input
-            //Calling methods using Switch case for UC1,UC2, UC3 and UC4 
+            //Calling methods using Switch case for UC1,UC2, UC3, UC4 and UC5
             switch (option)
             {
                 case 1:
@@ -51,6 +51,14 @@ namespace AddressBookDay10
                         Person.PrintPerson();
                     }
                     break;
+                case 5:
+                    {
+                        Console.WriteLine("Enter the number of Contact you wanted to add");
+                        int numContact = Convert.ToInt32(Console.ReadLine());
+                        Person.AddPerson(numContact);
+                        Person.PrintPerson();
+                    }
+                    break; 
                 default:
                     Console.WriteLine("Please enter valid option");
                     break;
