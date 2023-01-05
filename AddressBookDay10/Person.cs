@@ -21,8 +21,8 @@ namespace AddressBookDay10
         public string EditNumber { get; set; }
         public string AddressBookName { get; set; }
 
-        public static List<Person> people = new List<Person>();
-        public static Dictionary<string, Person> contactDictionary;
+        public static List<Person> people = new List<Person>();         //Created list
+        public static Dictionary<string, Person> contactDictionary;     //Created dictionary
         public Person()
         {
            contactDictionary = new Dictionary<string, Person>();
