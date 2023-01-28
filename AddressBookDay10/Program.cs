@@ -17,7 +17,7 @@ namespace AddressBookDay10
                     {
                         Console.WriteLine("Enter the number of contact you wanted to Make");
                         int numContact = Convert.ToInt32(Console.ReadLine());
-                        Person.AddPerson(numContact);
+                        Person.AddPerson();
                         Person.PrintPerson();
                     }
                     break;
@@ -25,7 +25,7 @@ namespace AddressBookDay10
                     {
                         Console.WriteLine("Enter the first name of contact you wanted to Make");
                         int numContact = Convert.ToInt32(Console.ReadLine());
-                        Person.AddPerson(numContact);
+                        Person.AddPerson();
                         Person.PrintPerson();
                     }
                     break;
@@ -34,7 +34,7 @@ namespace AddressBookDay10
                         Console.WriteLine("Enter the first name of Contact you wanted to Edit");
                         int numContact = Convert.ToInt32(Console.ReadLine());
                         Person addPerson = new Person();
-                        Person.AddPerson(numContact);
+                        Person.AddPerson();
                         Person.PrintPerson();
                     }
                     break;
@@ -42,7 +42,7 @@ namespace AddressBookDay10
                     {
                         Console.WriteLine("Enter the number of Contact you wanted to make");
                         int numContact = Convert.ToInt32(Console.ReadLine());
-                        Person.AddPerson(numContact);
+                        Person.AddPerson();
                         Person.PrintPerson();
                         Console.WriteLine("Enter the first name of contact you wanted to remove");
                         string name = Convert.ToString(Console.ReadLine());
@@ -55,12 +55,12 @@ namespace AddressBookDay10
                     {
                         Console.WriteLine("Enter the number of Contact you wanted to add");
                         int numContact = Convert.ToInt32(Console.ReadLine());
-                        Person.AddPerson(numContact);
+                        Person.AddPerson();
                         Person.PrintPerson();
                     }
                     break;
                 case 6:
-                    Person.AddressBook();
+                    Person.MultipleAddressBook();
                     break;
                 default:
                     Console.WriteLine("Please enter valid option");
