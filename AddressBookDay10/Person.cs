@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace AddressBookDay10
 {
@@ -22,13 +26,13 @@ namespace AddressBookDay10
         public string AddressBookName { get; set; }
 
         public static List<Person> people = new List<Person>();         //Created list
-             
+
         public Person()
         {
-           
+
         }
         //Creating contructor for address book
-        public Person(string AdressBookName,string FirstName, string LastName, string PhoneNumber, string Address, string City, string State, string EmailID)
+        public Person(string AdressBookName, string FirstName, string LastName, string PhoneNumber, string Address, string City, string State, string EmailID)
         {
             this.AddressBookName = AdressBookName;
             this.FirstName = FirstName;
@@ -39,10 +43,12 @@ namespace AddressBookDay10
             this.State = State;
             this.EmailID = EmailID;
         }
-        public static void AddPerson()          //Creating method for taking user inputs
+        //Creating method for taking user inputs UC1, UC2 and UC5
+        public static void AddPerson()          
         {
             Console.WriteLine("Please enter how many contacts you want to make");
             int numContact = Convert.ToInt32(Console.ReadLine());
+            
             for (int i = 0; i < numContact; i++)
             {
                 Person person = new Person();
@@ -60,15 +66,28 @@ namespace AddressBookDay10
                 person.State = Console.ReadLine();
                 Console.WriteLine("Enter the EmailId");
                 person.EmailID = Console.ReadLine();
-                people.Add(person);
+                //people.Add(person);
+                if (people.Count > 0)
+                {
+                    List<Person> person1 = people.Where(p => p.FirstName == person.FirstName).ToList();
+                    if (person1.Count > 0)
+                    {
+                        Console.WriteLine("Duplicate Entry\n------------------------");
+                    }
+                    else
+                    {
+                        people.Add(person);
+
+                    }
+                }
+                else
+                {
+                    people.Add(person);
+                }
             }
         }
-        public void AddDetails(string adressBookName, string firstName, string lastName, string phoneNumber, string address, string city, string state, string emailId)
-        {
-            Person newContact = new Person(adressBookName, firstName, lastName, phoneNumber, address, city, state, emailId);
-            //contactDictionary.Add(adressBookName, newContact);
-        }
-        public static void PrintPerson()            //Creating method to display persons details
+        //Creating method to display persons details
+        public static void PrintPerson()            
         {
             foreach (Person person in people)
             {
@@ -83,7 +102,8 @@ namespace AddressBookDay10
                 Console.WriteLine("---------------------------------------");
             }
         }
-        public void editContact(string name)        //Creating Method to edit contact
+        //Creating Method to edit contact UC3
+        public void editContact(string name)       
         {
             bool input = false;
             Console.WriteLine("Enter:\n1:Edit for Firstname\n2:Edit for LastName\n3:Edit for PhoneNumber\n4:Edit for Address\n5:Edit for City\n6:Edit for State\n7:Edit for EmailId");
@@ -140,7 +160,8 @@ namespace AddressBookDay10
                 Console.WriteLine("First name is not found");
             Person.PrintPerson();
         }
-        public void deleteContact(string name)      //Creating method for delete contact
+        //Creating method for delete contact UC4
+        public void deleteContact(string name)      
         {
             bool flag = false;
             foreach (Person person1 in people)
@@ -155,7 +176,7 @@ namespace AddressBookDay10
             }
             if (flag == false)
                 Console.WriteLine("The contact is not found");
-            
+
         }
         //Created multiple address book method for UC6
         public static void MultipleAddressBook()
